@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/crud-demo.iml" filepath="$PROJECT_DIR$/crud-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crud-mongo/crud-mongo.iml" filepath="$PROJECT_DIR$/crud-mongo/crud-mongo.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-redis/crud-redis.iml" filepath="$PROJECT_DIR$/crud-redis/crud-redis.iml" />
     </modules>
   </component>
