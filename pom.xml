@@ -11,6 +11,7 @@
     <modules>
         <module>crud-redis</module>
         <module>crud-mongo</module>
+        <module>crud-pg</module>
     </modules>
 
 

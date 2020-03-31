@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="crud-mongo" />
         <module name="crud-redis" />
+        <module name="crud-pg" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="crud-demo" target="1.5" />
       <module name="crud-mongo" target="1.5" />
+      <module name="crud-pg" target="1.5" />
       <module name="crud-redis" target="1.5" />
     </bytecodeTargetLevel>
   </component>
