@@ -15,7 +15,7 @@
       <module name="crud-demo" target="1.5" />
       <module name="crud-mongo" target="1.5" />
       <module name="crud-pg" target="1.5" />
-      <module name="crud-redis" target="1.5" />
+      <module name="crud-redis" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
