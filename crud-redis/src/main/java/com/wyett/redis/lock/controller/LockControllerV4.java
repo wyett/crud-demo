@@ -7,6 +7,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author : wyettLei
  * @date : Created in 2020/4/1 16:09
@@ -14,15 +16,26 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class LockControllerV1 {
-    private static final Logger Log = LoggerFactory.getLogger(LockControllerV1.class);
+public class LockControllerV4 {
+    private static final Logger Log = LoggerFactory.getLogger(LockControllerV4.class);
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @RequestMapping("/deproduct")
-    public void deproduct() {
-        synchronized (this) {
+    @RequestMapping("/deproduct4")
+    public String deproduct() {
+        // 利用setnx，如果不存在则设置成功，表示获取锁成功
+        String Lockkey = "lockkey";
+
+        try {
+            boolean isLocked = stringRedisTemplate.opsForValue().setIfAbsent(Lockkey, String.valueOf(1));
+            stringRedisTemplate.expire(Lockkey, 30, TimeUnit.SECONDS);
+
+            // 获取锁失败
+            if (!isLocked) {
+                return "get product lock filed";
+            }
+
             int productNum = Integer.parseInt(stringRedisTemplate.opsForValue().get("product"));
             if (productNum > 0) {
                 int realProductNum = productNum - 1;
@@ -31,6 +44,9 @@ public class LockControllerV1 {
             } else {
                 System.out.println("减库存失败，库存不足");
             }
+        } finally {
+            stringRedisTemplate.delete(Lockkey);
         }
+        return "deproduct end";
     }
 }
