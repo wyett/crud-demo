@@ -17,6 +17,8 @@ public class MongoReplsetClientUrl {
                         ".240:10000/wyett?readPreference=secondaryPreferred");
 
         MongoClient client = new MongoClient(mongoClientURI);
+
+        System.out.println(client.listDatabases());
         System.out.println(client.getDatabase("wyett"));
     }
 }
