@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/crud-demo.iml" filepath="$PROJECT_DIR$/crud-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-mongo/crud-mongo.iml" filepath="$PROJECT_DIR$/crud-mongo/crud-mongo.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-pg/crud-pg.iml" filepath="$PROJECT_DIR$/crud-pg/crud-pg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crud-rabbitmq-advanced/crud-rabbitmq-advanced.iml" filepath="$PROJECT_DIR$/crud-rabbitmq-advanced/crud-rabbitmq-advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crud-rabbitmq-quickstart/crud-rabbitmq-quickstart.iml" filepath="$PROJECT_DIR$/crud-rabbitmq-quickstart/crud-rabbitmq-quickstart.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-redis/crud-redis.iml" filepath="$PROJECT_DIR$/crud-redis/crud-redis.iml" />
     </modules>
   </component>
