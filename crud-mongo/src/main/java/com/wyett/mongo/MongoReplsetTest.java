@@ -18,7 +18,7 @@ public class MongoReplsetTest {
     public static void main(String[] args) {
         // replset
         List<ServerAddress> servers = new ArrayList<ServerAddress>();
-        servers.add(new ServerAddress("10.10.19.69", 10000));
+        servers.add(new ServerAddress("192.168.0.100", 10000));
         servers.add(new ServerAddress("10.10.18.240", 10000));
 
         // option

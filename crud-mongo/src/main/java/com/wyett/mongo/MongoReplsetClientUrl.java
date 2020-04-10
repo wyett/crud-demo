@@ -13,7 +13,7 @@ public class MongoReplsetClientUrl {
     public static void main(String[] args) {
         // mongo connection url
         MongoClientURI mongoClientURI =
-                new MongoClientURI("mongodb://wyett_rw:jumpjump@10.10.19.69:10000,10.10.18" +
+                new MongoClientURI("mongodb://wyett_rw:jumpjump@192.168.0.100:10000,10.10.18" +
                         ".240:10000/wyett?readPreference=secondaryPreferred");
 
         MongoClient client = new MongoClient(mongoClientURI);
