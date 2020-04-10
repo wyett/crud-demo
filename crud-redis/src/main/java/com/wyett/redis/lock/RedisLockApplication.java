@@ -4,6 +4,7 @@ import org.redisson.Redisson;
 import org.redisson.config.Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author : wyettLei
@@ -18,18 +19,17 @@ public class RedisLockApplication {
 
     }
 
+    @Bean
     public Redisson redisson() {
         Config config = new Config();
         // single
         config.useSingleServer().setAddress("redis://xxxxxxxxxxx:6379").setDatabase(0);
 
         // cluster
-        /*
-        config.useClusterServers()
-                .addNodeAddress("redis://xxxxxxxxxx:6379")
-                .addNodeAddress("redis://xxxxxxxxxx:6379")
-                .addNodeAddress("redis://xxxxxxxxxx:6379");
-         */
+        //config.useClusterServers()
+        //        .addNodeAddress("redis://xxxxxxxxxx:6379")
+        //        .addNodeAddress("redis://xxxxxxxxxx:6379")
+        //        .addNodeAddress("redis://xxxxxxxxxx:6379");
 
         return (Redisson) Redisson.create(config);
 

@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class LockControllerV1 {
-    private static final Logger Log = LoggerFactory.getLogger(LockControllerV1.class);
+public class LockControllerV2 {
+    private static final Logger Log = LoggerFactory.getLogger(LockControllerV2.class);
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @RequestMapping("/deproduct")
+    @RequestMapping("/deproduct2")
     public void deproduct() {
         synchronized (this) {
             int productNum = Integer.parseInt(stringRedisTemplate.opsForValue().get("product"));
