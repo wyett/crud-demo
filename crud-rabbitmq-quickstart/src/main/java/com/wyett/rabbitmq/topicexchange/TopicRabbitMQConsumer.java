@@ -17,7 +17,7 @@ public class TopicRabbitMQConsumer {
          * 创建工厂
          */
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("192.168.0.100");
+        connectionFactory.setHost("192.168.1.101");
         connectionFactory.setPort(5672);
         connectionFactory.setUsername("wyett");
         connectionFactory.setPassword("jumpjump");

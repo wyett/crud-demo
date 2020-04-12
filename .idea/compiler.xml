@@ -14,9 +14,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="crud-demo" target="1.5" />
+      <module name="crud-demo" target="1.8" />
       <module name="crud-mongo" target="1.8" />
-      <module name="crud-pg" target="1.5" />
+      <module name="crud-pg" target="1.8" />
       <module name="crud-rabbitmq-advanced" target="1.8" />
       <module name="crud-rabbitmq-quickstart" target="1.8" />
       <module name="crud-redis" target="1.8" />

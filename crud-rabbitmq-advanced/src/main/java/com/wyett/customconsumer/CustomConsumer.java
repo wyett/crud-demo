@@ -1,8 +1,8 @@
 package com.wyett.customconsumer;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.*;
+
+import java.io.IOException;
 
 /**
  * @author : wyettLei
@@ -19,5 +19,20 @@ public class CustomConsumer extends DefaultConsumer {
      */
     public CustomConsumer(Channel channel) {
         super(channel);
+    }
+
+    public void handleDelivery(String consumerTag,
+                               Envelope envelope,
+                               AMQP.BasicProperties properties,
+                               byte[] body)
+            throws IOException {
+        System.out.println(consumerTag);
+        System.out.println(envelope.getDeliveryTag());
+        System.out.println(envelope.getExchange());
+        System.out.println(envelope.getRoutingKey());
+        System.out.println(envelope.isRedeliver());
+        System.out.println(envelope.toString());
+        System.out.println(properties.toString());
+        System.out.println(new String(body));
     }
 }
