@@ -12,6 +12,17 @@ import java.util.concurrent.TimeoutException;
  * @author : wyettLei
  * @date : Created in 2020/4/10 17:56
  * @description: TODO
+ *
+ * 9
+ * wyett.custom.exchange
+ * wyett.custom.key
+ * false
+ * Envelope(deliveryTag=9, redeliver=false, exchange=wyett.custom.exchange, routingKey=wyett.custom.key)
+ * #contentHeader<basic>(content-type=null, content-encoding=null, headers=null, delivery-mode=null, priority=null, correlation-id=null, reply-to=null, expiration=null, message-id=null, timestamp=null, type=null, user-id=null, app-id=null, cluster-id=null)
+ * wyett.custom.message.
+ *
+ *
+ *
  */
 
 public class CustomConsumerConsumer {

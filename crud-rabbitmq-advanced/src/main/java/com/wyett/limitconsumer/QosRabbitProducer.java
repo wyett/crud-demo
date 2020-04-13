@@ -1,4 +1,4 @@
-package com.wyett.customconsumer;
+package com.wyett.limitconsumer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -9,13 +9,15 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * @author : wyettLei
- * @date : Created in 2020/4/10 17:49
- * @description: TODO
+ * @date : Created in 2020/4/13 14:53
+ * @description: limit consume
  */
 
-public class CustomConsumerProducer {
+public class QosRabbitProducer {
     public static void main(String[] args) throws IOException, TimeoutException {
-        // 1.创建链接工厂
+        /**
+         * 1.创建工厂
+         */
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("192.168.1.101");
         connectionFactory.setPort(5672);
@@ -24,24 +26,28 @@ public class CustomConsumerProducer {
         connectionFactory.setVirtualHost("/wyett-vhost-02");
         connectionFactory.setConnectionTimeout(5000);
 
-        // 2.创建链接
+        /**
+         * 2.创建链接
+         */
         Connection conn = connectionFactory.newConnection();
 
-        // 3.创建channel
+        /**
+         * 3.创建channel
+         */
         Channel channel = conn.createChannel();
 
-        // 4.指定exchange,exchange type, 消息体
-        String exchangeName = "wyett.custom.exchange";
-        String routingKey = "wyett.custom.key";
-        String message_prev = "wyett.custom.message.";
+        /**
+         * 4.声明exchangeName, queueName
+         */
+        String exchangeName = "wyett.qos.exchange01";
+        String routingKey = "wyett.qos.key01";
+        String msg_prev = "hello, wyett";
 
-
-        // 5.发送消息
-        for (int i = 0; i < 10; i++) {
-            channel.basicPublish(exchangeName, routingKey, null, message_prev.getBytes());
+        /**
+         * 5.发送消息
+         */
+        for (int i = 0; i < 100; i++) {
+            channel.basicPublish(exchangeName, routingKey, null, (msg_prev + i).getBytes());
         }
-
-        channel.close();
-        conn.close();
     }
 }
