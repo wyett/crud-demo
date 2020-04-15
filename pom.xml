@@ -14,6 +14,7 @@
         <module>crud-pg</module>
         <module>crud-rabbitmq-quickstart</module>
         <module>crud-rabbitmq-advanced</module>
+        <module>crud-rabbitmq-spring</module>
     </modules>
 
     <properties>

@@ -25,8 +25,7 @@ public class WyettReturnConsumer extends DefaultConsumer {
                                Envelope envelope,
                                AMQP.BasicProperties properties,
                                byte[] body)
-            throws IOException
-    {
+            throws IOException {
         System.out.println(new String(body));
     }
 

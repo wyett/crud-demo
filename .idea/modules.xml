@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/crud-pg/crud-pg.iml" filepath="$PROJECT_DIR$/crud-pg/crud-pg.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-rabbitmq-advanced/crud-rabbitmq-advanced.iml" filepath="$PROJECT_DIR$/crud-rabbitmq-advanced/crud-rabbitmq-advanced.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-rabbitmq-quickstart/crud-rabbitmq-quickstart.iml" filepath="$PROJECT_DIR$/crud-rabbitmq-quickstart/crud-rabbitmq-quickstart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crud-rabbitmq-spring/crud-rabbitmq-spring.iml" filepath="$PROJECT_DIR$/crud-rabbitmq-spring/crud-rabbitmq-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/crud-redis/crud-redis.iml" filepath="$PROJECT_DIR$/crud-redis/crud-redis.iml" />
     </modules>
   </component>

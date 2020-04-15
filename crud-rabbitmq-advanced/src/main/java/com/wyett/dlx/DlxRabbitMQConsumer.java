@@ -21,7 +21,7 @@ public class DlxRabbitMQConsumer {
          * 1.创建工厂
          */
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("192.168.1.101");
+        connectionFactory.setHost("10.10.19.69");
         connectionFactory.setPort(5672);
         connectionFactory.setUsername("wyett");
         connectionFactory.setPassword("jumpjump");
@@ -57,8 +57,8 @@ public class DlxRabbitMQConsumer {
          * 6.声明queue
          */
         Map<String, Object> queueArgs = new HashMap<>();
-        queueArgs.put("dlx.exchange.name", dlxExchangeName);
-        queueArgs.put("dlx.queue.len", 4);
+        queueArgs.put("x-dead-letter-exchange", dlxExchangeName);
+        queueArgs.put("x-max-length", 4);
 
         String queueName = "wyett.dlx.queue01";
         channel.queueDeclare(queueName, true, false, false, queueArgs);

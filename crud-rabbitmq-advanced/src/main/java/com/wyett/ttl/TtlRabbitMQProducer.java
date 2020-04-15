@@ -1,21 +1,21 @@
-package com.wyett.dlx;
+package com.wyett.ttl;
 
-import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 /**
  * @author : wyettLei
- * @date : Created in 2020/4/14 9:55
+ * @date : Created in 2020/4/15 10:44
  * @description: TODO
  */
 
-public class DlxRabbitMQProducer {
+public class TtlRabbitMQProducer {
     public static void main(String[] args) throws IOException, TimeoutException {
         /**
          * 1.创建工厂
@@ -39,24 +39,30 @@ public class DlxRabbitMQProducer {
         Channel channel = conn.createChannel();
 
         /**
-         * set properties
+         * 4.
          */
-        AMQP.BasicProperties basicProps = new AMQP.BasicProperties().builder()
-                .deliveryMode(2)
-                .contentType("utf8")
-                .correlationId(UUID.randomUUID().toString())
-                .expiration("10000")
-                .build();
+        String exchangeName = "wyett.ttl.exchange01";
+        String exchangeType = "topic";
+        String routingKey = "wyett.ttl.key01";
+        String queueName = "wyett.ttl.queue01";
 
-        /**
-         * 5.发布消息
-         */
-        String exchangeName = "wyett.dlx.exchange01";
-        String routingKey = "wyett.dlx.key";
-        String msg_prev = "test";
+        channel.exchangeDeclare(exchangeName, exchangeType, true, false, false, null);
 
-        for (int i = 0; i < 100; i++) {
-            channel.basicPublish(exchangeName, routingKey, basicProps, (msg_prev + i).getBytes());
+        Map<String, Object> queueArgs = new HashMap<>();
+        queueArgs.put("x-message-ttl", 10000);
+        queueArgs.put("x-max-length", 4);
+        // queue declare
+        channel.queueDeclare(queueName, true,true,false, queueArgs);
+        // bind
+        channel.queueBind(queueName, exchangeName, routingKey);
+
+        for (int i = 0; i < 10; i++) {
+            channel.basicPublish(exchangeName, routingKey, null, ("hello, wyett" + i).getBytes());
         }
+
+
+
+
+
     }
 }
