@@ -20,7 +20,7 @@ public class MyProcessor {
         System.out.println("consumerMsg " + msg);
     }
 
-    public void consumerTopicQueue(String msgBody) {
+    public void consumeTopicQueue(String msgBody) {
         System.out.println("consumerTopicQueue " + msgBody);
 
     }
@@ -29,7 +29,7 @@ public class MyProcessor {
      * 处理json
      * @param jsonMap
      */
-    public void consumerJsonMessage(Map jsonMap) {
+    public void consumeJsonMessage(Map jsonMap) {
         System.out.println("处理json"+jsonMap);
     }
 
@@ -37,14 +37,14 @@ public class MyProcessor {
      * 处理order得
      * @param order
      */
-    public void consumerJavaObjMessage(Order order) {
+    public void consumeJavaObjMessage(Order order) {
         System.out.println("处理java对象"+order.toString());
 
     }
 
 
 
-    public void consumerFileMessage(File file) {
+    public void consumeFileMessage(File file) {
         System.out.println("处理文件"+file.getName());
     }
 }
